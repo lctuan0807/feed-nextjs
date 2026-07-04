@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { syncUser } from "@/services/auth/sync-user";
 
 interface LoginData {
   email: string;
@@ -24,6 +25,19 @@ export async function login(formData: LoginData) {
       error: error.message,
     };
   }
+
+  const {
+    data: { user },
+    error: userError,
+  } = await supabase.auth.getUser();
+
+  if (userError || !user) {
+    return {
+      error: userError?.message || "User not found",
+    };
+  }
+
+  await syncUser(user);
 
   return {
     success: true,
