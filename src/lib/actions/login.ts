@@ -25,5 +25,7 @@ export async function login(formData: LoginData) {
     };
   }
 
-  redirect("/feed");
+  return {
+    success: true,
+  };
 }
