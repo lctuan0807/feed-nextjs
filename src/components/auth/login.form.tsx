@@ -14,10 +14,11 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { login } from "@/lib/actions/login";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   email: z.string().trim().email("Please enter a valid email address"),
@@ -36,8 +37,14 @@ const LoginForm = () => {
   });
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    console.log(data);
-    await login({ email: data.email, password: data.password });
+    const result = await login({ email: data.email, password: data.password });
+
+    if (result.success) {
+      toast.success("Login successful");
+      redirect("/feed");
+    } else {
+      toast.error(result.error || "Login failed");
+    }
   };
 
   return (
@@ -51,7 +58,7 @@ const LoginForm = () => {
                 control={form.control}
                 render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
-                    <FieldLabel htmlFor="form-login-email">Email*</FieldLabel>
+                    <FieldLabel htmlFor="form-login-email">* Email</FieldLabel>
                     <Input
                       {...field}
                       id="form-login-email"
@@ -71,7 +78,7 @@ const LoginForm = () => {
                 render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
                     <FieldLabel htmlFor="form-login-password">
-                      Password*
+                      * Password
                     </FieldLabel>
                     <div className="relative">
                       <Input
