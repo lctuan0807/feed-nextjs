@@ -47,6 +47,7 @@ const RegisterForm = () => {
       username: "",
       email: "",
       password: "",
+      confirmPassword: "",
     },
   });
 
