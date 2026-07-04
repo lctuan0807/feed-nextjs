@@ -16,17 +16,11 @@ export async function updateSession(request: NextRequest) {
         },
 
         setAll(cookiesToSet) {
-          console.log(
-            "Console Logging ~~ ~ updateSession ~ cookiesToSet:",
-            cookiesToSet,
-          );
           cookiesToSet.forEach(({ name, value }) =>
             request.cookies.set(name, value),
           );
 
-          response = NextResponse.next({
-            request,
-          });
+          response = NextResponse.next({ request });
 
           cookiesToSet.forEach(({ name, value, options }) =>
             response.cookies.set(name, value, options),
@@ -38,6 +32,5 @@ export async function updateSession(request: NextRequest) {
 
   await supabase.auth.getUser();
 
-  console.log("Console Logging ~~ ~ updateSession ~ response:", response);
   return response;
 }
