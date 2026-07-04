@@ -13,8 +13,8 @@ export default async function LoginPage() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-muted/30">
+    <div className="flex min-h-screen items-center justify-center bg-muted/30">
       <LoginForm />
-    </main>
+    </div>
   );
 }

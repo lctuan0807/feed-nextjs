@@ -52,19 +52,23 @@ const RegisterForm = () => {
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
     const { email, username, password } = data;
-    console.log(data);
+
     const result = await signup({
       email: email.trim(),
       name: username,
       password,
     });
-    console.log(result);
 
     if (result.success) {
-      toast.success("Please check your email to verify your account.");
+      toast.success("Registration successful", {
+        description: "Please check your email to verify your account",
+      });
     } else {
-      toast.error(result.error);
+      toast.error("Registration failed", {
+        description: result.error,
+      });
     }
+    return;
   }
 
   return (
@@ -167,7 +171,7 @@ const RegisterForm = () => {
                       {...field}
                       id="register-form-confirm-password"
                       aria-invalid={fieldState.invalid}
-                      placeholder="Enter your password"
+                      placeholder="Confirm your password"
                       type={showConfirmPassword ? "text" : "password"}
                       autoComplete="new-password"
                     />
