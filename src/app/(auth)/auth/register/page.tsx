@@ -1,12 +1,10 @@
-import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
-import RegisterForm from "@/components/auth/register.form";
+import RegisterForm from "@/features/auth/components/register.form";
+
+import { getCurrentUser } from "@/features/auth/services/auth.service";
 
 export default async function LoginPage() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getCurrentUser();
 
   if (user) {
     redirect("/feed");

@@ -1,5 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
-import { syncUser } from "@/services/auth/sync-user";
+import { syncUser } from "@/features/auth/services/sync-user.service";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
@@ -23,5 +23,5 @@ export async function GET(request: Request) {
     await syncUser(user);
   }
 
-  return NextResponse.redirect(`${origin}/feed`);
+  return NextResponse.redirect(`${origin}/`);
 }

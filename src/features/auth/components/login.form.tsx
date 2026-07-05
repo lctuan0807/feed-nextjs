@@ -17,7 +17,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
-import { login } from "@/lib/actions/login";
+import { login } from "@/features/auth/actions/login";
 import { toast } from "sonner";
 
 const formSchema = z.object({
@@ -49,7 +49,7 @@ const LoginForm = () => {
 
   return (
     <>
-      <Card className="w-full sm:max-w-md">
+      <Card className="w-full">
         <CardContent>
           <form id="form-login" onSubmit={form.handleSubmit(onSubmit)}>
             <FieldGroup>
