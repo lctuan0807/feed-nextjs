@@ -18,6 +18,13 @@ export async function getCurrentUser() {
     where: {
       authId: authUser.id,
     },
+    select: {
+      id: true,
+      authId: true,
+      email: true,
+      name: true,
+      avatarUrl: true,
+    },
   });
 
   return user;

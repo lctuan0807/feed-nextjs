@@ -73,152 +73,140 @@ const RegisterForm = () => {
   }
 
   return (
-    <Card className="w-full sm:max-w-md">
-      <CardContent>
-        <form id="register-form" onSubmit={form.handleSubmit(onSubmit)}>
-          <FieldGroup>
-            <Controller
-              name="username"
-              control={form.control}
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="register-form-username">
-                    * Username
-                  </FieldLabel>
-                  <Input
-                    {...field}
-                    id="register-form-username"
-                    aria-invalid={fieldState.invalid}
-                    placeholder="Enter your username"
-                    autoComplete="off"
-                  />
-                  {fieldState.invalid && (
-                    <FieldError errors={[fieldState.error]} />
-                  )}
-                </Field>
-              )}
-            />
-            <Controller
-              name="email"
-              control={form.control}
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="register-form-email">* Email</FieldLabel>
-                  <Input
-                    {...field}
-                    id="register-form-email"
-                    aria-invalid={fieldState.invalid}
-                    placeholder="user@example.com"
-                    autoComplete="off"
-                  />
-                  {fieldState.invalid && (
-                    <FieldError errors={[fieldState.error]} />
-                  )}
-                </Field>
-              )}
-            />
-            <Controller
-              name="password"
-              control={form.control}
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="register-form-password">
-                    * Password
-                  </FieldLabel>
-                  <div className="relative">
-                    <Input
-                      {...field}
-                      id="register-form-password"
-                      aria-invalid={fieldState.invalid}
-                      placeholder="Enter your password"
-                      type={showPassword ? "text" : "password"}
-                      autoComplete="new-password"
-                    />
-                    {fieldState.invalid && (
-                      <FieldError errors={[fieldState.error]} />
-                    )}
-
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      size="icon"
-                      className="absolute right-0 top-0 h-full w-10 text-muted-foreground hover:bg-transparent"
-                      onClick={() => setShowPassword((prev) => !prev)}
-                    >
-                      {showPassword ? (
-                        <EyeOff className="h-4 w-4" aria-hidden="true" />
-                      ) : (
-                        <Eye className="h-4 w-4" aria-hidden="true" />
-                      )}
-                      <span className="sr-only">
-                        {showPassword ? "Hide password" : "Show password"}
-                      </span>
-                    </Button>
-                  </div>
-                </Field>
-              )}
-            />
-
-            <Controller
-              name="confirmPassword"
-              control={form.control}
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="register-form-confirm-password">
-                    * Confirm Password
-                  </FieldLabel>
-                  <div className="relative">
-                    <Input
-                      {...field}
-                      id="register-form-confirm-password"
-                      aria-invalid={fieldState.invalid}
-                      placeholder="Confirm your password"
-                      type={showConfirmPassword ? "text" : "password"}
-                      autoComplete="new-password"
-                    />
-                    {fieldState.invalid && (
-                      <FieldError errors={[fieldState.error]} />
-                    )}
-
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      size="icon"
-                      className="absolute right-0 top-0 h-full w-10 text-muted-foreground hover:bg-transparent"
-                      onClick={() => setShowConfirmPassword((prev) => !prev)}
-                    >
-                      {showConfirmPassword ? (
-                        <EyeOff className="h-4 w-4" aria-hidden="true" />
-                      ) : (
-                        <Eye className="h-4 w-4" aria-hidden="true" />
-                      )}
-                      <span className="sr-only">
-                        {showConfirmPassword
-                          ? "Hide password"
-                          : "Show password"}
-                      </span>
-                    </Button>
-                  </div>
-                </Field>
-              )}
-            />
-          </FieldGroup>
-        </form>
-
+    <>
+      <form id="register-form" onSubmit={form.handleSubmit(onSubmit)}>
         <FieldGroup>
-          <Field orientation="horizontal" className="py-4">
-            <Button
-              type="submit"
-              form="register-form"
-              className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-5 rounded-md transition-colors disabled:bg-gray-500 cursor-pointer"
-            >
-              Register
-            </Button>
-          </Field>
+          <Controller
+            name="username"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <Input
+                  {...field}
+                  id="register-form-username"
+                  aria-invalid={fieldState.invalid}
+                  placeholder="Your username"
+                  autoComplete="off"
+                  className="rounded-xl p-4"
+                />
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
+            )}
+          />
+          <Controller
+            name="email"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <Input
+                  {...field}
+                  id="register-form-email"
+                  aria-invalid={fieldState.invalid}
+                  placeholder="user@example.com"
+                  autoComplete="off"
+                  className="rounded-xl p-4"
+                />
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
+            )}
+          />
+          <Controller
+            name="password"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <div className="relative">
+                  <Input
+                    {...field}
+                    id="register-form-password"
+                    aria-invalid={fieldState.invalid}
+                    placeholder="Your password"
+                    type={showPassword ? "text" : "password"}
+                    autoComplete="new-password"
+                    className="rounded-xl p-4"
+                  />
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-0 top-0 h-full w-10 text-muted-foreground hover:bg-transparent"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                  >
+                    {showPassword ? (
+                      <EyeOff className="h-4 w-4" aria-hidden="true" />
+                    ) : (
+                      <Eye className="h-4 w-4" aria-hidden="true" />
+                    )}
+                    <span className="sr-only">
+                      {showPassword ? "Hide password" : "Show password"}
+                    </span>
+                  </Button>
+                </div>
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
+            )}
+          />
+
+          <Controller
+            name="confirmPassword"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <div className="relative">
+                  <Input
+                    {...field}
+                    id="register-form-confirm-password"
+                    aria-invalid={fieldState.invalid}
+                    placeholder="Confirm your password"
+                    type={showConfirmPassword ? "text" : "password"}
+                    autoComplete="new-password"
+                    className="rounded-xl p-4"
+                  />
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-0 top-0 h-full w-10 text-muted-foreground hover:bg-transparent"
+                    onClick={() => setShowConfirmPassword((prev) => !prev)}
+                  >
+                    {showConfirmPassword ? (
+                      <EyeOff className="h-4 w-4" aria-hidden="true" />
+                    ) : (
+                      <Eye className="h-4 w-4" aria-hidden="true" />
+                    )}
+                    <span className="sr-only">
+                      {showConfirmPassword ? "Hide password" : "Show password"}
+                    </span>
+                  </Button>
+                </div>
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
+            )}
+          />
         </FieldGroup>
-      </CardContent>
+      </form>
+
+      <FieldGroup>
+        <Field orientation="horizontal" className="py-4">
+          <Button
+            type="submit"
+            form="register-form"
+            className="w-full bg-black hover:bg-black text-white font-semibold py-5 rounded-md transition-colors disabled:bg-gray-500 cursor-pointer"
+          >
+            Register
+          </Button>
+        </Field>
+      </FieldGroup>
       <Field className="border-t border-gray-200"></Field>
-      <CardFooter>
+      <div className="mx-auto">
         <Field className="text-center text-sm inline">
           Already have an account?{" "}
           <Link
@@ -228,8 +216,8 @@ const RegisterForm = () => {
             Sign in
           </Link>
         </Field>
-      </CardFooter>
-    </Card>
+      </div>
+    </>
   );
 };
 

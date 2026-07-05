@@ -1,22 +1,19 @@
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 
 import { Sidebar } from "./sidebar";
 
 type Props = {
   children: ReactNode;
-
-  user: {
-    name: string | null;
-    email: string;
-  };
 };
 
-export function AppShell({ children, user }: Props) {
+export function AppShell({ children }: Props) {
   return (
     <div className="flex">
-      <Sidebar user={user} />
-      <div className="min-h-screen bg-white mx-auto container">
-        <div className="min-h-screen max-w-3xl mx-auto">{children}</div>
+      <Sidebar />
+      <div className="min-h-screen mx-auto container">
+        <div className="min-h-screen max-w-3xl mx-auto">
+          <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+        </div>
       </div>
     </div>
   );

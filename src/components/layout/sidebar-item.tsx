@@ -32,7 +32,9 @@ export function SidebarItem({ href, title, icon }: SidebarItemProps) {
       href={href}
       className={clsx(
         "flex items-center gap-3 rounded-xl px-4 py-3 transition",
-        active ? "bg-neutral-100 font-semibold" : "hover:bg-neutral-100",
+        active
+          ? "bg-neutral-100 dark:bg-neutral-800 font-semibold"
+          : "hover:bg-neutral-100 dark:hover:bg-neutral-800",
       )}
     >
       <Icon size={20} />
