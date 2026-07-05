@@ -1,19 +1,16 @@
-import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
-import LoginForm from "@/components/auth/login.form";
+import LoginForm from "@/features/auth/components/login.form";
+import { getCurrentUser } from "@/features/auth/services/auth.service";
 
 export default async function LoginPage() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getCurrentUser();
 
   if (user) {
     redirect("/feed");
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted/30">
+    <div className="flex min-h-dvh items-center justify-center">
       <LoginForm />
     </div>
   );

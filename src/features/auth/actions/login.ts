@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { syncUser } from "@/services/auth/sync-user";
+import { syncUser } from "@/features/auth/services/sync-user.service";
 
 interface LoginData {
   email: string;

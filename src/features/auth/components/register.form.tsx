@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
-import { signup } from "@/lib/actions/register";
+import { signup } from "@/features/auth/actions/register";
 import { toast } from "sonner";
 
 const formSchema = z
