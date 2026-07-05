@@ -6,11 +6,14 @@ export default async function LoginPage() {
   const user = await getCurrentUser();
 
   if (user) {
-    redirect("/feed");
+    redirect("/");
   }
 
   return (
-    <div className="flex min-h-dvh items-center justify-center">
+    <div className="flex w-full max-w-sm flex-col gap-4">
+      <span className="text-2xl font-bold text-center">
+        Login to your account
+      </span>
       <LoginForm />
     </div>
   );

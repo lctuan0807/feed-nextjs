@@ -2,17 +2,11 @@ import { navigation } from "@/config/navigation";
 
 import { SidebarItem } from "./sidebar-item";
 import { Logo } from "./logo";
+import { MoreMenu } from "../sidebar/more-menu";
 
-type Props = {
-  user: {
-    name: string | null;
-    email: string;
-  };
-};
-
-export function Sidebar({ user }: Props) {
+export function Sidebar() {
   return (
-    <aside className="sticky top-0 flex h-screen w-64 flex-col border-r bg-white">
+    <aside className="sticky top-0 flex h-screen w-64 flex-col border-r">
       <div className="p-6">
         <Logo />
       </div>
@@ -22,6 +16,10 @@ export function Sidebar({ user }: Props) {
           <SidebarItem key={item.href} {...item} />
         ))}
       </nav>
+
+      <div className="mt-auto p-4 w-full">
+        <MoreMenu />
+      </div>
     </aside>
   );
 }
