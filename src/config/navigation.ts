@@ -1,7 +1,7 @@
 export const navigation = [
   {
     title: "For You",
-    href: "/feed",
+    href: "/",
     icon: "house",
   },
   {

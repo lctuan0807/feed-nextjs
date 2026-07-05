@@ -21,13 +21,11 @@ type SidebarItemProps = {
 };
 
 export function SidebarItem({ href, title, icon }: SidebarItemProps) {
-  console.log("Console Logging ~~ ~ SidebarItem ~ icon:", icon);
   const pathname = usePathname();
 
   const active = pathname === href;
 
   const Icon = icons[icon as keyof typeof icons];
-  console.log("Console Logging ~~ ~ SidebarItem ~ Icon:", Icon);
 
   return (
     <Link

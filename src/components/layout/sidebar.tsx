@@ -2,7 +2,6 @@ import { navigation } from "@/config/navigation";
 
 import { SidebarItem } from "./sidebar-item";
 import { Logo } from "./logo";
-import { UserMenu } from "./user-menu";
 
 type Props = {
   user: {
@@ -23,10 +22,6 @@ export function Sidebar({ user }: Props) {
           <SidebarItem key={item.href} {...item} />
         ))}
       </nav>
-
-      <div className="mt-auto">
-        <UserMenu user={user} />
-      </div>
     </aside>
   );
 }

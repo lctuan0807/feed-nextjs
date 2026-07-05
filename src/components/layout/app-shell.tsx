@@ -13,13 +13,10 @@ type Props = {
 
 export function AppShell({ children, user }: Props) {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="mx-auto flex">
-        <Sidebar user={user} />
-
-        <main className="min-h-screen w-full max-w-160 rounded-2xl border">
-          {children}
-        </main>
+    <div className="flex">
+      <Sidebar user={user} />
+      <div className="min-h-screen bg-white mx-auto container">
+        <div className="min-h-screen max-w-3xl mx-auto">{children}</div>
       </div>
     </div>
   );
