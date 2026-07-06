@@ -51,6 +51,7 @@ A full-stack authentication starter built with **Next.js (App Router)**, **TypeS
    NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
    NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your-supabase-publishable-key
    DATABASE_URL=your-postgres-connection-string
+   NEXT_PUBLIC_APP_URL=http://localhost:3000
    ```
 
 4. Run Prisma migrations and generate the client:
