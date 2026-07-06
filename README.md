@@ -81,6 +81,25 @@ A full-stack authentication starter built with **Next.js (App Router)**, **TypeS
 └── package.json
 ```
 
+## Screen
+
+### Login
+
+![Login](./docs/images/login-screen.png)
+
+### Register
+
+![Register](./docs/images/register-screen.png)
+
+### Home
+
+![Home](./docs/images/light-theme.png)
+![Home](./docs/images/dark-theme.png)
+
+### More Menu Button
+
+![More Menu Button](./docs/images/more-menu-button.png)
+
 ## Author
 
 **Tuan Le Cong** — [GitHub](https://github.com/lctuan0807)
