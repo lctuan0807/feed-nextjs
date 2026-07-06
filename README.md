@@ -73,15 +73,16 @@ A full-stack authentication starter built with **Next.js (App Router)**, **TypeS
 ├── prisma/              # Prisma schema and migrations
 ├── src/
 │   ├── app/             # Next.js App Router routes
-│   ├── components/      # UI components (shadcn/ui-based)
-│   ├── lib/             # Supabase client, Prisma client, utilities
+│   ├── components/      # UI components (shadcn/ui-based, layout, )
+│   ├── config/          # Configuration files (navigation, etc.)
 │   ├── features/        # Feature-specific code (auth, etc.)
+│   ├── lib/             # Supabase client, Prisma client, utilities
 │   └── providers/       # React Context providers
 ├── components.json      # shadcn/ui config
 └── package.json
 ```
 
-## Screen
+## Screens
 
 ### Login
 
