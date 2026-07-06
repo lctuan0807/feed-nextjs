@@ -1,4 +1,4 @@
-# Feed App (Next.js)
+# Learning Project (Next.js)
 
 A full-stack authentication starter built with **Next.js (App Router)**, **TypeScript**, **Supabase Auth**, and **Prisma ORM**. This project focuses on a production-style sign-up/sign-in flow with a synced user model between Supabase and a PostgreSQL database via Prisma, and a shared user session available across the app through React Context.
 
@@ -73,13 +73,33 @@ A full-stack authentication starter built with **Next.js (App Router)**, **TypeS
 ├── prisma/              # Prisma schema and migrations
 ├── src/
 │   ├── app/             # Next.js App Router routes
-│   ├── components/      # UI components (shadcn/ui-based)
-│   ├── lib/             # Supabase client, Prisma client, utilities
+│   ├── components/      # UI components (shadcn/ui-based, layout, )
+│   ├── config/          # Configuration files (navigation, etc.)
 │   ├── features/        # Feature-specific code (auth, etc.)
+│   ├── lib/             # Supabase client, Prisma client, utilities
 │   └── providers/       # React Context providers
 ├── components.json      # shadcn/ui config
 └── package.json
 ```
+
+## Screens
+
+### Login
+
+![Login](./docs/images/login-screen.png)
+
+### Register
+
+![Register](./docs/images/register-screen.png)
+
+### Home
+
+![Home](./docs/images/light-theme.png)
+![Home](./docs/images/dark-theme.png)
+
+### More Menu Button
+
+![More Menu Button](./docs/images/more-menu-button.png)
 
 ## Author
 
